@@ -10,7 +10,7 @@
 #define	LIBFP_H
 
 char *getLine(FILE *csv);
-
+int line_cnt(char *file);
 
 #endif	/* LIBFP_H */
 
