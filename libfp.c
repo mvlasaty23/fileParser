@@ -9,6 +9,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+#define LINE_LENGTH 110
+#define ARRAY_SIZE(x) (sizeof(x)/sizeof(*(x)))
 
 char *getLine(FILE *csv){
     
@@ -46,3 +48,15 @@ char *getLine(FILE *csv){
     }
     return pLine; //return line don't forget to free allocated heap mem!
 }
+
+int line_cnt(char *file){
+    
+    FILE *pt = fopen(file, "r");
+    char buff[LINE_LENGTH];
+    int cnt = 0;
+    
+    while(fgets(buff, LINE_LENGTH, pt) != NULL) cnt++;
+    
+    return cnt;
+}
+
