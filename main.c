@@ -43,7 +43,7 @@ int main(int argc, char** argv) {
                 delimiter = optarg;
                 break;
             case 'r'://set row number at which we are looking
-                isSet = optarg;
+                isSet = atoi(optarg);
                 break;
             default:
                 puts("Usage: fileparser.exe -i [INPUT FILENAME]");
