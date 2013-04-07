@@ -88,6 +88,9 @@ int main(int argc, char** argv) {
             printf("Umeleiten!!\n");
     }
     
+    int row_count = row_count(name, delimiter);
+    printf("File has %i rows\n", row_count);
+    
     return (EXIT_SUCCESS);
 }
 

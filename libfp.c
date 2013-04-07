@@ -60,6 +60,38 @@ int line_count(char *file){
     return cnt;
 }
 
+int row_count(char *file, char *delimiter){
+    
+    FILE *fp = fopen(file, "r");
+    char buff[LINE_LENGTH];
+    int cnt = 0;
+    char *line;
+    char *row;
+    char ch[2] = "\n";
+    
+    while(fp != EOF){
+        
+        line = get_line(fp);
+        
+        if(*line == NULL)
+            break;
+        
+        for(row = strtok(line, delimiter); row != NULL; row = strtok(NULL, delimiter)){
+            
+            if(strstr(row, ch) != NULL){
+                cnt++;
+                break;
+            }
+
+            cnt++;
+        }
+    }
+    
+    fclose(fp);
+    
+    return cnt;
+}
+
 void chomp(char *string){
     string[strcspn(string, "\n")] = '\0';
 }

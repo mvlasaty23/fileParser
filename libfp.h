@@ -17,6 +17,7 @@
 
 char *get_line(FILE *fp);
 int line_count(FILE *fp);
+int row_count(char *file, char *delimiter);
 void chomp(char *string);
 
 #endif	/* LIBFP_H */
