@@ -10,6 +10,8 @@
 #include <unistd.h>
 #include <libfp.h>
 
+#define STRING_LENGTH 80
+
 /*
  *Programm liest Textfile von stdin
  * und gibt dieses dann zeile fuer zeile aus. 
@@ -68,7 +70,7 @@ int main(int argc, char** argv) {
     char *line;
     int lines_count = line_count(name);
     int rows_count = row_count(name, delimiter);
-    char elements[lines_count][rows_count][40];
+    char elements[lines_count][rows_count][STRING_LENGTH];
     int i = 0;
     int j = 0;
     
