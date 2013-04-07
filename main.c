@@ -21,6 +21,7 @@ int main(int argc, char** argv) {
     char *delimiter = NULL;
     int isSet = 4;
     
+    //split output should be args TODO!
     char *out1 = "companys.csv";
     char *out2 = "contacts.csv";
     FILE *op1 = fopen(out1, "w");
@@ -28,20 +29,20 @@ int main(int argc, char** argv) {
     
     while((ch = getopt(argc, argv,"hi:d:r:")) != EOF){
         switch(ch){
-            case 'h':
-                puts("Usage: fileparser.exe -i [INPUT FILENAME]");
+            case 'h'://print usage
+                puts("Usage: fileparser.exe -i [INPUT FILENAME] -d \"DELIMITER\" -r ROW NUMBER ");
                 return(EXIT_FAILURE);
-            case 'i':
+            case 'i'://get input file
                 name = optarg;
                 if(name == 0){
                     fprintf(stderr, "Es wurde kein Dateiname angegeben!\n");
                     return(EXIT_FAILURE);
                 }
                 break;
-            case 'd':
+            case 'd'://set delimiter default ","
                 delimiter = optarg;
                 break;
-            case 'r':
+            case 'r'://set row number at which we are looking
                 isSet = optarg;
                 break;
             default:
@@ -52,12 +53,14 @@ int main(int argc, char** argv) {
     argc -= optind;
     argv += optind;
     
+    //open file exit if undef
     FILE *fp = fopen(name, "r");
     if(fp == NULL){
         printf("Datei: %s konnte nicht geöffnet werden!\n", name);
         return(EXIT_FAILURE);
     }
     
+    //set default delimiter
     if(delimiter == NULL){
         delimiter = ",";
     }
@@ -69,6 +72,11 @@ int main(int argc, char** argv) {
     int i = 0;
     int j = 0;
     
+    /*
+     * Get line by line and
+     * chomp off newline char
+     * split each row into array elemnts for later use
+     */
     while(fp != EOF){
         line = get_line(fp);
         
@@ -81,7 +89,6 @@ int main(int argc, char** argv) {
             
             chomp(row);
             strcpy(elements[i][j], row);
-            //printf("[%i][%i]%s ", i, j, row);
             j++;
             
             if(j >= rows_count){
@@ -89,13 +96,18 @@ int main(int argc, char** argv) {
                 i++;
             }
         }
-        
         free(line);
     }
     fclose(fp);
+    
     char *undefE = "\"\"";
     FILE *fpout;
     
+    /*
+     * check if the row that we are looking for
+     * is empty or not
+     * so we can decide in which file we put it
+     */
     for(i = 0; i < lines_count; i++){
 
         if(strcmp(elements[i][isSet], undefE) == 0){

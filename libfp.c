@@ -11,6 +11,7 @@
 #include <strings.h>
 
 #define LINE_LENGTH 128
+#define STRING_LENGTH 80
 
 char *get_line(FILE *fp){
     
