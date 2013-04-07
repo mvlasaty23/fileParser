@@ -4,7 +4,7 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
-      <itemPath>C:/Users/michael.vlasaty/Documents/NetBeansProjects/karte/FileParser/libfp.h</itemPath>
+      <itemPath>C:/Users/michael.vlasaty/Documents/NetBeansProjects/FileParser/libfp.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
@@ -13,7 +13,7 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
-      <itemPath>C:/Users/michael.vlasaty/Documents/NetBeansProjects/karte/FileParser/libfp.c</itemPath>
+      <itemPath>C:/Users/michael.vlasaty/Documents/NetBeansProjects/FileParser/libfp.c</itemPath>
       <itemPath>main.c</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
@@ -38,7 +38,7 @@
       <compileType>
         <cTool>
           <incDir>
-            <pElem>C:/Users/michael.vlasaty/Documents/NetBeansProjects/karte/FileParser</pElem>
+            <pElem>C:/Users/michael.vlasaty/Documents/NetBeansProjects/FileParser</pElem>
           </incDir>
         </cTool>
       </compileType>

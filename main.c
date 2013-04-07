@@ -47,19 +47,46 @@ int main(int argc, char** argv) {
     }
     
     char *line;
+    int lines_count = line_count(name);
+    char elements[lines_count][6][40];
+    char *row;
+    int i = 0;
+    int j = 0;
+    char *delimiter = ",";
     while(fp != EOF){
         line = get_line(fp);
         
         if(*line == NULL)
             break;
         
-        printf("%s", line);
+        //printf("%s", line);
+        
+        for(row = strtok(line, delimiter); row != NULL; row = strtok(NULL, delimiter)){
+            
+            chomp(row);
+            strcpy(elements[i][j], row);
+            //printf("[%i][%i]%s ", i, j, row);
+            j++;
+            
+            if(j >= 6){
+                j = 0;  
+                i++;
+            }
+        }
+        
         free(line);
     }
     fclose(fp);
+    char *undefE = "\"\"";
     
-    int lines_count = line_count(name);
-    printf("\nFile beinhaltet %i Zeilen.\n", lines_count);
+    for(i = 0; i < lines_count; i++){
+        for(j = 0; j < 6; j++){
+            printf("%s ", elements[i][j]);
+        }
+        printf("\n");
+        if(strcmp(elements[i][4], undefE) == 0)
+            printf("Umeleiten!!\n");
+    }
     
     return (EXIT_SUCCESS);
 }

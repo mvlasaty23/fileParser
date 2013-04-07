@@ -17,6 +17,7 @@
 
 char *get_line(FILE *fp);
 int line_count(FILE *fp);
+void chomp(char *string);
 
 #endif	/* LIBFP_H */
 

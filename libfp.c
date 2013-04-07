@@ -59,3 +59,7 @@ int line_count(char *file){
     
     return cnt;
 }
+
+void chomp(char *string){
+    string[strcspn(string, "\n")] = '\0';
+}
