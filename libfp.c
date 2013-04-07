@@ -21,7 +21,7 @@ char *getLine(FILE *csv){
     
     //handle malloc error
     if(pLine == NULL){
-        fprintf("stderr", "Failed to allocate %d bytes\n", bufIncrSize);
+        fprintf(stderr, "Failed to allocate %d bytes\n", bufIncrSize);
         exit(EXIT_FAILURE);
     }
     
@@ -41,7 +41,7 @@ char *getLine(FILE *csv){
         pLine = (char *)realloc(pLine, bufSize);
         
         if(pLine == NULL){
-            fprintf("stderr", "ERROR: can't realloc!\n");
+            fprintf(stderr, "ERROR: can't realloc!\n");
             exit(EXIT_FAILURE);
         }
             
