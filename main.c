@@ -19,8 +19,14 @@ int main(int argc, char** argv) {
     char ch;
     char *name = "";
     char *delimiter = NULL;
+    int isSet = 4;
     
-    while((ch = getopt(argc, argv,"hi:d:")) != EOF){
+    char *out1 = "companys.csv";
+    char *out2 = "contacts.csv";
+    FILE *op1 = fopen(out1, "w");
+    FILE *op2 = fopen(out2, "w");
+    
+    while((ch = getopt(argc, argv,"hi:d:r:")) != EOF){
         switch(ch){
             case 'h':
                 puts("Usage: fileparser.exe -i [INPUT FILENAME]");
@@ -34,6 +40,9 @@ int main(int argc, char** argv) {
                 break;
             case 'd':
                 delimiter = optarg;
+                break;
+            case 'r':
+                isSet = optarg;
                 break;
             default:
                 puts("Usage: fileparser.exe -i [INPUT FILENAME]");
@@ -54,7 +63,6 @@ int main(int argc, char** argv) {
     }
     
     char *line;
-    //char *delimiter = ",";
     int lines_count = line_count(name);
     int rows_count = row_count(name, delimiter);
     char elements[lines_count][rows_count][40];
@@ -86,15 +94,26 @@ int main(int argc, char** argv) {
     }
     fclose(fp);
     char *undefE = "\"\"";
+    FILE *fpout;
     
     for(i = 0; i < lines_count; i++){
-        for(j = 0; j < rows_count; j++){
-            printf("%s ", elements[i][j]);
+
+        if(strcmp(elements[i][isSet], undefE) == 0){
+            fpout = op1;
+        }else{
+            fpout = op2;
         }
-        printf("\n");
-        if(strcmp(elements[i][4], undefE) == 0)
-            printf("Umeleiten!!\n");
+        for(j = 0; j < rows_count; j++){
+            if(j == rows_count - 1){
+                fprintf(fpout, "%s\n", elements[i][j]);
+            }else{
+                fprintf(fpout, "%s,", elements[i][j]);
+            }
+        }
     }
+    
+    fclose(op1);
+    fclose(op2);
     
     return (EXIT_SUCCESS);
 }
