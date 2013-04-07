@@ -29,7 +29,7 @@ int main(int argc, char** argv) {
     FILE *op1 = fopen(out1, "w");
     FILE *op2 = fopen(out2, "w");
     
-    while((ch = getopt(argc, argv,"hi:d:r:")) != EOF){
+    while((ch = getopt(argc, argv, "hi:d:r:?")) != -1){
         switch(ch){
             case 'h'://print usage
                 puts("Usage: fileparser.exe -i [INPUT FILENAME] -d \"DELIMITER\" -r ROW NUMBER ");
@@ -47,6 +47,9 @@ int main(int argc, char** argv) {
             case 'r'://set row number at which we are looking
                 isSet = atoi(optarg);
                 break;
+            case '?':
+                puts("Usage: fileparser.exe -i [INPUT FILENAME]");
+                return(EXIT_FAILURE);
             default:
                 puts("Usage: fileparser.exe -i [INPUT FILENAME]");
                 return(EXIT_FAILURE);
