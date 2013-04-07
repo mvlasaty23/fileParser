@@ -124,7 +124,7 @@ int main(int argc, char** argv) {
             if(j == rows_count - 1){
                 fprintf(fpout, "%s\n", elements[i][j]);
             }else{
-                fprintf(fpout, "%s,", elements[i][j]);
+                fprintf(fpout, "%s%s", elements[i][j], delimiter);
             }
         }
     }

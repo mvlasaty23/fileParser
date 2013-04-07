@@ -19,9 +19,11 @@
 "CMA170W";"Chief In-Ceiling Storage Enclosure White";190.80;228.96
 "CMA300B";"Chief Ceiling plate Pole Clamp black";144.00;172.8
 "CMA330B";"Chief Ceiling plate Offset black";43.20;51.84
+"CMA345B";"";134.40;161.28
 "CMA362B";"Chief Ceiling plate C- Clamp black";88.80;106.56
 "CMA365B";"Chief Ceiling plate Truss  black";43.20;51.84
 "CMA366B";"Chief Ceiling plate Spanning Adapter  black";102.00;122.4
+"CMA395B";"";46.80;56.16
 "CMA395W";"Chief Ceiling plate Angled white";46.80;56.16
 "CMS445";"Chief Ceiling plate Suspended Replacement white";152.40;182.88
 "CMS115B";"Chief Ceiling plate Speed Connect black";16.80;20.16
@@ -85,6 +87,7 @@
 "CMS0911W";"Chief Rohr Variabel 2,7-3,4 m white";170.40;204.48
 "CMS009012B";"Chief Rohr Variabel 229-305 mm black";70.80;84.96
 "CMS009012S";"Chief Rohr Variabel 229-305 mm silver";70.80;84.96
+"CMS009012W";"";70.80;84.96
 "CMS1012B";"Chief Rohr Variabel 3,1-3,7 m black";186.00;223.2
 "CMS1012S";"Chief Rohr Variabel 3,1-3,7 m silver";186.00;223.2
 "CMS1012W";"Chief Rohr Variabel 3,1-3,7 m white";186.00;223.2
@@ -148,6 +151,8 @@
 "MSMUB";"Chief Fixed Wall Mount 26""-47"" Micro Adj.";130.80;156.96
 "MSMVUB";"Chief Pull-Out  Wall Mount 26""-47"" Micro Adj.";358.80;430.56
 "MSTUB";"Chief Ultra Thin Wall Mount 26""-47""";118.80;142.56
+"MTAPU";"";166.80;200.16
+"MTAUB";"";130.80;156.96
 "MTMUB";"Chief Tilt Wall Mount 26""-47"" Micro Adj.";166.80;200.16
 "MTTUB";"Chief Ultra Thin Tilt Wall Mount 26""-47""";166.80;200.16
 "MWCUB";"Chief Tilt Wall Mount with CPU Storage up to 40""";214.80;257.76
