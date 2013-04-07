@@ -9,7 +9,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define LINE_LENGTH 110
+#define LINE_LENGTH 128
 #define ARRAY_SIZE(x) (sizeof(x)/sizeof(*(x)))
 
 char *getLine(FILE *csv){
@@ -56,6 +56,8 @@ int line_cnt(char *file){
     int cnt = 0;
     
     while(fgets(buff, LINE_LENGTH, pt) != NULL) cnt++;
+    
+    fclose(pt);
     
     return cnt;
 }
