@@ -18,9 +18,9 @@ int main(int argc, char** argv) {
 
     char ch;
     char *name = "";
+    char *delimiter;
     
-    
-    while((ch = getopt(argc, argv,"hi:")) != EOF){
+    while((ch = getopt(argc, argv,"hi:d:")) != EOF){
         switch(ch){
             case 'h':
                 puts("Usage: fileparser.exe -i [INPUT FILENAME]");
@@ -31,6 +31,9 @@ int main(int argc, char** argv) {
                     fprintf(stderr, "Es wurde kein Dateiname angegeben!\n");
                     return(EXIT_FAILURE);
                 }
+                break;
+            case 'd':
+                delimiter = optarg;
                 break;
             default:
                 puts("Usage: fileparser.exe -i [INPUT FILENAME]");
@@ -46,20 +49,25 @@ int main(int argc, char** argv) {
         return(EXIT_FAILURE);
     }
     
+    if(delimiter == NULL){
+        delimiter = ",";
+    }
+    
     char *line;
+    //char *delimiter = ",";
     int lines_count = line_count(name);
-    char elements[lines_count][6][40];
-    char *row;
+    int rows_count = row_count(name, delimiter);
+    char elements[lines_count][rows_count][40];
     int i = 0;
     int j = 0;
-    char *delimiter = ",";
+    
     while(fp != EOF){
         line = get_line(fp);
         
         if(*line == NULL)
             break;
-        
-        //printf("%s", line);
+    
+        char *row;
         
         for(row = strtok(line, delimiter); row != NULL; row = strtok(NULL, delimiter)){
             
@@ -68,7 +76,7 @@ int main(int argc, char** argv) {
             //printf("[%i][%i]%s ", i, j, row);
             j++;
             
-            if(j >= 6){
+            if(j >= rows_count){
                 j = 0;  
                 i++;
             }
@@ -80,16 +88,13 @@ int main(int argc, char** argv) {
     char *undefE = "\"\"";
     
     for(i = 0; i < lines_count; i++){
-        for(j = 0; j < 6; j++){
+        for(j = 0; j < rows_count; j++){
             printf("%s ", elements[i][j]);
         }
         printf("\n");
         if(strcmp(elements[i][4], undefE) == 0)
             printf("Umeleiten!!\n");
     }
-    
-    int row_count = row_count(name, delimiter);
-    printf("File has %i rows\n", row_count);
     
     return (EXIT_SUCCESS);
 }

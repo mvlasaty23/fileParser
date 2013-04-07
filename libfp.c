@@ -77,13 +77,12 @@ int row_count(char *file, char *delimiter){
             break;
         
         for(row = strtok(line, delimiter); row != NULL; row = strtok(NULL, delimiter)){
-            
-            if(strstr(row, ch) != NULL){
-                cnt++;
-                break;
-            }
 
             cnt++;
+            
+            if(strstr(row, ch) != NULL){
+                return cnt;
+            }
         }
     }
     
