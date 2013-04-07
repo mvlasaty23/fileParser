@@ -15,9 +15,16 @@
  */ 
 //typedef unsigned long size_t;
 
+//get line of a file free pointer after use
 char *get_line(FILE *fp);
+
+//count lines of file
 int line_count(FILE *fp);
+
+//count rows of csv file
 int row_count(char *file, char *delimiter);
+
+//chop trailing newline char from a string
 void chomp(char *string);
 
 #endif	/* LIBFP_H */
