@@ -18,7 +18,7 @@ int main(int argc, char** argv) {
 
     char ch;
     char *name = "";
-    char *delimiter;
+    char *delimiter = NULL;
     
     while((ch = getopt(argc, argv,"hi:d:")) != EOF){
         switch(ch){
